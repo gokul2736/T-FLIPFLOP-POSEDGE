@@ -8,8 +8,6 @@ To implement  T flipflop using verilog and validating their functionality using 
 
 Quartus prime
 
-**THEORY**
-
 **T Flip-Flop**
 
 T flip-flop is the simplified version of JK flip-flop. It is obtained by connecting the same input ‘T’ to both inputs of JK flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of T flip-flop is shown in the following figure.
@@ -28,15 +26,48 @@ From the above characteristic table, we can directly write the next state equati
 
 **Procedure**
 
-/* write all the steps invloved */
+ 1).Type the program in Quartus software.
+ 
+ 2).Compile and run the program.
+ 
+ 3).Generate the RTL schematic and save the logic diagram.
+ 
+ 4).Create nodes for inputs and outputs to generate the timing diagram.
+ 
+ 5).For different input combinations generate the timing diagram/
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+module t_ff(t, clk, rst, q);
+  input t, clk, rst;
+  output reg q;
+
+  always @(posedge clk or posedge rst) 
+begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else if (t==0)
+      q <= q; 
+     else
+        q<=~q;
+  end
+endmodule
+```
+![image](https://github.com/user-attachments/assets/9c7e9e49-286a-456f-b644-2358367523ac)
+
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![image](https://github.com/user-attachments/assets/c93ab72e-24e0-4d38-b416-fbd936697a4e)
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![image](https://github.com/user-attachments/assets/330bb618-3df5-47db-b7b5-1a94bcf43051)
+
+
 **RESULTS**
+
+Thus the T flipflop is designed and verified using Quartus software.
